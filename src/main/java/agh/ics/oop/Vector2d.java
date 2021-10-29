@@ -1,12 +1,21 @@
 package agh.ics.oop;
 
 public class Vector2d {
-        final public int x;
-        final public int y;
+        final private int x;
+        final private int y;
+
 
     public Vector2d(int x, int y) {
         this.x = x;
         this.y = y;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
     }
 
     public String toString(){
