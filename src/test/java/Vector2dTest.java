@@ -1,5 +1,5 @@
-package agh.ics.oop;
-
+import agh.ics.oop.Vector2d;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -8,7 +8,7 @@ public class Vector2dTest {
     @Test
     public void testEquals() {
         assertEquals(new Vector2d(2, 1), new Vector2d(2, 1));
-        assertNotEquals(new Vector2d(2, 1), new Vector2d(3, 7));
+        Assertions.assertNotEquals(new Vector2d(2, 1), new Vector2d(3, 7));
     }
 
     @Test

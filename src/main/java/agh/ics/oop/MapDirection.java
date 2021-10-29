@@ -37,9 +37,8 @@ public enum MapDirection {
             case SOUTH -> {
                 return WEST;
             }
-
+            default -> {return null;}
         }
-        return null;
     }
 
     public MapDirection previous(){
