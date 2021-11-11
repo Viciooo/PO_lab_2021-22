@@ -28,8 +28,8 @@ public class SimulationEngine implements IEngine {
             if (bob != null) {
                 bob.move(this.listOfDirections[i]);
                 this.positionOfAnimal[i % m] = bob.getPosition();
-                System.out.println(bob.getPosition());
-                System.out.println("----------------");
+//                System.out.println(bob.getPosition());
+//                System.out.println("----------------");
             }
         }
     }

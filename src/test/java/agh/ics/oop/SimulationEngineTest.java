@@ -7,18 +7,19 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 class SimulationEngineTest {
-    ArrayList<MoveDirection> directions = new OptionsParser().parse(new String[]{"f f b l r l f f b f f b"});
+    ArrayList<MoveDirection> directions = OptionsParser.parse(new String[]{"f f b l r l f f b f f b"});
     IWorldMap map = new RectangularMap(7, 7);
     Vector2d[] positions = {new Vector2d(0, 0), new Vector2d(6, 3), new Vector2d(5, 7)};
     IEngine engine = new SimulationEngine(directions, map, positions);
+    Vector2d[] finalPositions = {new Vector2d(3,1), new Vector2d(3,4), new Vector2d(5,6)};
 
 
     @Test
-    void runTest() {
+    void run() {
         engine.run();
-        Vector2d[] expectedResults = engine.getPositionOfAnimal();
-        assertEquals(positions[0], expectedResults[0]);
-        assertEquals(positions[1], expectedResults[1]);
-        assertEquals(positions[2], expectedResults[2]);
+        Vector2d[] result = engine.getPositionOfAnimal();
+        assertEquals(finalPositions[0], result[0]);
+        assertEquals(finalPositions[1], result[1]);
+        assertEquals(finalPositions[2], result[2]);
     }
 }

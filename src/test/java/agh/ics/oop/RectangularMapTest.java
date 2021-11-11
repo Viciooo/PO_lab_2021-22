@@ -13,7 +13,7 @@ class RectangularMapTest {
     Animal Hexe = new Animal(map, new Vector2d(3, 1));
 
     @Test
-    void canMoveToTest() {
+    void canMoveTo() {
         map.place(Hänsel);
         map.place(Gretel);
         map.place(Hexe);
@@ -24,7 +24,7 @@ class RectangularMapTest {
     }
 
     @Test
-    void placeTest() {
+    void place() {
         Animal Schneewittchen = new Animal(map, new Vector2d(4, 7));
         assertTrue(map.place(Hänsel));
         assertTrue(map.place(Gretel));
@@ -33,7 +33,7 @@ class RectangularMapTest {
     }
 
     @Test
-    void isOccupiedTest() {
+    void isOccupied() {
         map.place(Hänsel);
         map.place(Gretel);
         map.place(Hexe);
@@ -46,7 +46,7 @@ class RectangularMapTest {
     }
 
     @Test
-    void objectAtTest() {
+    void objectAt() {
         map.place(Hänsel);
         map.place(Gretel);
         map.place(Hexe);
