@@ -4,14 +4,17 @@ import java.util.ArrayList;
 
 public class World {
     public static void main(String[] args) {
-        Animal bob = new Animal(MapDirection.NORTH,new Vector2d(2,2));
-        ArrayList<MoveDirection> setOfDirections= new ArrayList<MoveDirection>();
+//        args: "f f b l r l f f b f f b f f f f f"
         System.out.println("start");
-        OptionsParser.parse(args,setOfDirections);
-        for (MoveDirection i: setOfDirections){
-            bob.move(i);
-            System.out.println(bob);
-        }
+        ArrayList<MoveDirection> directions = new OptionsParser().parse(args);
+        IWorldMap map = new RectangularMap(7, 7);
+        Vector2d[] positions = {new Vector2d(0, 0), new Vector2d(6, 3), new Vector2d(5, 7)};
+        IEngine engine = new SimulationEngine(directions, map, positions);
+        System.out.println(map);
+        engine.run();
+        System.out.println(map);
+        Vector2d[] positionsFinal = engine.getPositionOfAnimal();
+        System.out.println(positionsFinal[0]+" "+positionsFinal[1]+" "+positionsFinal[2]);
         System.out.println("stop");
     }
 }

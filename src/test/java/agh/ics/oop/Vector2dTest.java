@@ -32,6 +32,7 @@ public class Vector2dTest {
         assertFalse(new Vector2d(2, 8).follows(new Vector2d(1, 3)));
         assertFalse(new Vector2d(14342, 4342).follows(new Vector2d(2326, 73232)));
     }
+
     @Test
     public void testUpperRight() {
         assertEquals(new Vector2d(3, 4).upperRight(new Vector2d(4, 3)), new Vector2d(4, 4));

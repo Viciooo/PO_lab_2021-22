@@ -3,8 +3,9 @@ package agh.ics.oop;
 import java.util.ArrayList;
 
 public class OptionsParser {
-    public static void parse(String[] arr, ArrayList<MoveDirection> setOfDirections){
-        for (String i: arr){
+    public static ArrayList<MoveDirection> parse(String[] arr) {
+        ArrayList<MoveDirection> setOfDirections = new ArrayList<>();
+        for (String i : arr) {
             switch (i) {
                 case "f", "forward" -> setOfDirections.add(MoveDirection.FORWARD);
                 case "b", "backward" -> setOfDirections.add(MoveDirection.BACKWARD);
@@ -12,5 +13,6 @@ public class OptionsParser {
                 case "r", "right" -> setOfDirections.add(MoveDirection.RIGHT);
             }
         }
+        return setOfDirections;
     }
 }
