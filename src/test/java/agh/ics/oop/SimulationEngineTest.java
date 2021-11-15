@@ -7,12 +7,11 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 class SimulationEngineTest {
-    ArrayList<MoveDirection> directions = OptionsParser.parse(new String[]{"f f b l r l f f b f f b f f f f f"});
+    ArrayList<MoveDirection> directions = OptionsParser.parse("f f b l r l f f f".split(" "));
     IWorldMap map = new RectangularMap(7, 7);
     Vector2d[] positions = {new Vector2d(0, 0), new Vector2d(6, 3), new Vector2d(5, 7)};
     IEngine engine = new SimulationEngine(directions, map, positions);
-    Vector2d[] finalPositions = {new Vector2d(3,1), new Vector2d(3,4), new Vector2d(5,6)};
-
+    Vector2d[] finalPositions = { new Vector2d(7,1) ,new Vector2d(7,4), new Vector2d(4,6)};
 
     @Test
     void run() {
