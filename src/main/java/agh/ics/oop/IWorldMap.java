@@ -1,6 +1,5 @@
 package agh.ics.oop;
 
-import java.util.List;
 
 /**
  * The interface responsible for interacting with the map of the world.
@@ -10,11 +9,13 @@ import java.util.List;
  *
  */
 public interface IWorldMap {
-    List<Animal> getAnimals();
+    int getxMin();
 
-    int getWidth();
+    int getyMin();
 
-    int getHeight();
+    int getxMax();
+
+    int getyMax();
 
     /**
      * Indicate if any object can move to the given position.
@@ -54,5 +55,6 @@ public interface IWorldMap {
      * @return Object or null if the position is not occupied.
      */
     Object objectAt(Vector2d position);
+
 //    sprawdamy czy w arrayliście istnieje obiekt zawierający reference do animal znajdującego się na pozycji position
 }

@@ -8,7 +8,7 @@ package agh.ics.oop;
  *
  */
 public interface IEngine {
-    Vector2d[] getPositionOfAnimal();
+    Vector2d[] getAnimalsPos();
 
     /**
      * Move the animal on the map according to the provided move directions. Every

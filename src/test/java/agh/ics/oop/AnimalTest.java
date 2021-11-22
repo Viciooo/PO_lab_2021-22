@@ -11,7 +11,6 @@ class AnimalTest {
 
     @Test
     public void testMove() {
-        Animal bob = new Animal(MapDirection.NORTH, new Vector2d(2, 2));
         bob.move(MoveDirection.FORWARD);
         assertEquals(bob.getPosition(), new Vector2d(2, 3));
         bob.move(MoveDirection.LEFT);

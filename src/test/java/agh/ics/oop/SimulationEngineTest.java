@@ -7,18 +7,16 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 class SimulationEngineTest {
-    ArrayList<MoveDirection> directions = OptionsParser.parse("f f b l r l f f f".split(" "));
-    IWorldMap map = new RectangularMap(7, 7);
-    Vector2d[] positions = {new Vector2d(0, 0), new Vector2d(6, 3), new Vector2d(5, 7)};
-    IEngine engine = new SimulationEngine(directions, map, positions);
-    Vector2d[] finalPositions = { new Vector2d(7,1) ,new Vector2d(7,4), new Vector2d(4,6)};
 
     @Test
-    void run() {
-        engine.run();
-        Vector2d[] result = engine.getPositionOfAnimal();
-        assertEquals(finalPositions[0], result[0]);
-        assertEquals(finalPositions[1], result[1]);
-        assertEquals(finalPositions[2], result[2]);
+    void runTest() {
+        ArrayList<MoveDirection> directions1 = OptionsParser.parse("f f f f f f f f f f f f l r f f f f f f".split(" "));
+        IWorldMap map1 = new RectangularMap(7, 7);
+        Vector2d[] positions1 = {new Vector2d(0, 0), new Vector2d(6, 3), new Vector2d(5, 7)};
+        IEngine engine1 = new SimulationEngine(directions1, map1, positions1);
+        engine1.run();
+        Vector2d[] expectedResults1 = {new Vector2d(6,4), new Vector2d(0,7), new Vector2d(5,5)};
+        Vector2d[] actualResults1 = engine1.getAnimalsPos();
+        assertArrayEquals(expectedResults1, actualResults1);
     }
 }
