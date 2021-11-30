@@ -6,14 +6,10 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class GrassField extends AbstractWorldMap {
     private List<Grass> fields;
-    protected int xMin;
-    protected int yMin;
-    protected int xMax;
-    protected int yMax;
 
 
     public GrassField(int n) {
-        this.animals = new ArrayList<>();
+//        this.animals = new ArrayList<>();
         this.fields = new ArrayList<>();
         int maxLen = (int) Math.sqrt(n * 10);
         while (this.fields.size() < n) {
@@ -62,9 +58,9 @@ public class GrassField extends AbstractWorldMap {
             this.yMin = Math.min(yMin, g.getPosition().getY());
         }
 
-        for (Animal a : this.animals) {
-            this.xMin = Math.min(xMin, a.getPosition().getX());
-            this.yMin = Math.min(yMin, a.getPosition().getY());
+        for (Vector2d v : this.animals.keySet()) {
+            this.xMin = Math.min(xMin, this.animals.get(v).getPosition().getX());
+            this.yMin = Math.min(yMin, this.animals.get(v).getPosition().getY());
         }
         return new Vector2d(this.xMin, this.yMin);
     }
@@ -74,9 +70,9 @@ public class GrassField extends AbstractWorldMap {
             this.xMax = Math.max(xMax, g.getPosition().getX());
             this.yMax = Math.max(yMax, g.getPosition().getY());
         }
-        for (Animal a : this.animals) {
-            this.xMax = Math.max(xMax, a.getPosition().getX());
-            this.yMax = Math.max(yMax, a.getPosition().getY());
+        for (Vector2d v : this.animals.keySet()) {
+            this.xMax = Math.max(xMax, this.animals.get(v).getPosition().getX());
+            this.yMax = Math.max(yMax, this.animals.get(v).getPosition().getY());
         }
         return new Vector2d(this.xMax, this.yMax);
     }

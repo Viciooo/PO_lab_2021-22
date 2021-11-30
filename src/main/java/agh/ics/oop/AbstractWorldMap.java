@@ -1,38 +1,36 @@
 package agh.ics.oop;
 
-import java.util.ArrayList;
-import java.util.List;
 
-public abstract class AbstractWorldMap implements IWorldMap {
-    protected List<Animal> animals;
+import java.util.*;
+
+public abstract class AbstractWorldMap implements IWorldMap,IPositionChangeObserver {
+    protected Map<Vector2d, Animal> animals;
+
     protected abstract Vector2d getLowerLeft();
+
     protected abstract Vector2d getUpperRight();
+
     protected int xMin;
     protected int yMin;
     protected int xMax;
     protected int yMax;
 
     public AbstractWorldMap() {
-
-        this.animals = new ArrayList<>();
+        this.animals = new LinkedHashMap<>();
     }
 
-    @Override
     public int getxMin() {
         return xMin;
     }
 
-    @Override
     public int getyMin() {
         return yMin;
     }
 
-    @Override
     public int getxMax() {
         return xMax;
     }
 
-    @Override
     public int getyMax() {
         return yMax;
     }
@@ -45,7 +43,8 @@ public abstract class AbstractWorldMap implements IWorldMap {
     @Override
     public boolean place(Animal animal) {
         if (this.canMoveTo(animal.getPosition())) {
-            this.animals.add(animal);
+            this.animals.put(animal.getPosition(), animal);
+            animal.addObserver(this);
             return true;
         }
         return false;
@@ -53,20 +52,12 @@ public abstract class AbstractWorldMap implements IWorldMap {
 
     @Override
     public boolean isOccupied(Vector2d position) {
-        for (Animal a : this.animals) {
-            if (a.getPosition().equals(position)) {
-                return true;
-            }
-        }
-        return false;
+        return this.animals.containsKey(position);
     }
 
     @Override
     public Object objectAt(Vector2d position) {
-        for (Animal a : this.animals) {
-            if (a.getPosition().equals(position)) return a;
-        }
-
+        if (this.animals.containsKey(position)) return this.animals.get(position);
         return null;
     }
 
@@ -74,5 +65,12 @@ public abstract class AbstractWorldMap implements IWorldMap {
         MapVisualizer animalsMap = new MapVisualizer(this);
 
         return animalsMap.draw(getLowerLeft(), getUpperRight());
+    }
+
+    @Override
+    public void positionChanged(Vector2d oldPosition, Vector2d newPosition) {
+        Animal animal = this.animals.get(oldPosition);
+        this.animals.remove(oldPosition);
+        this.animals.put(newPosition, animal);
     }
 }
