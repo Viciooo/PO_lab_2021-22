@@ -27,7 +27,7 @@ class GrassFieldTest {
         assertTrue(map.place(Hänsel));
         assertTrue(map.place(Gretel));
         assertTrue(map.place(Hexe));
-        assertFalse(map.place(Schneewittchen));
+        assertThrows(IllegalArgumentException.class,() -> map.place(Schneewittchen), "Schneewittchen can not be placed :(");
     }
 
     @Test

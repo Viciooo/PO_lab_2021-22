@@ -62,19 +62,14 @@ public class Animal {
                 Vector2d other = getPosition().add(Objects.requireNonNull(this.getDirection().toUnitVector()));
                 if (map.canMoveTo(other)) {
                     if (other.getX() < x1) {
-                        System.out.println("a");
                         this.setPosition(this.position.add(new Vector2d(x2, 0)));
                     } else if (other.getY() < y1) {
-                        System.out.println("b");
                         this.setPosition(this.position.add(new Vector2d(0, y2)));
                     } else if (other.getX() > x2) {
-                        System.out.println("c");
                         this.setPosition(this.position.subtract(new Vector2d(x2, 0)));
                     } else if (other.getY() > y2) {
-                        System.out.println("d");
                         this.setPosition(this.position.subtract(new Vector2d(0, y2)));
                     } else {
-                        System.out.println("e");
                         this.setPosition(this.position.add(Objects.requireNonNull(getDirection().toUnitVector())));
                     }
                 }
