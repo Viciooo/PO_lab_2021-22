@@ -42,4 +42,24 @@ public class RectangularMap extends AbstractWorldMap {
     public int getyMax() {
         return yMax;
     }
+
+    @Override
+    public void setxMin(int xMin) {
+
+    }
+
+    @Override
+    public void setyMin(int yMin) {
+
+    }
+
+    @Override
+    public void setxMax(int xMax) {
+
+    }
+
+    @Override
+    public void setyMax(int yMax) {
+
+    }
 }

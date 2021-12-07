@@ -1,9 +1,10 @@
 package agh.ics.oop;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class OptionsParser {
-    public static ArrayList<MoveDirection> parse(String[] arr) {
+    public static ArrayList<MoveDirection> parse(List<String> arr) {
         ArrayList<MoveDirection> setOfDirections = new ArrayList<>();
         for (String i : arr) {
             switch (i) {
