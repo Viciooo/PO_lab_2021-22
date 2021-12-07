@@ -1,2 +1,3 @@
 rootProject.name = 'Lab_1'
+include 'agh.ics.oop.gui'
 

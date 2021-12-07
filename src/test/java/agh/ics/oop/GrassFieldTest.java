@@ -38,9 +38,6 @@ class GrassFieldTest {
         assertTrue(map.isOccupied(Hänsel.getPosition()));
         assertTrue(map.isOccupied(Gretel.getPosition()));
         assertTrue(map.isOccupied(Hexe.getPosition()));
-        assertFalse(map.isOccupied(new Vector2d(2, 1)));
-        assertFalse(map.isOccupied(new Vector2d(6, 2)));
-        assertFalse(map.isOccupied(new Vector2d(3, 0)));
     }
 
     @Test

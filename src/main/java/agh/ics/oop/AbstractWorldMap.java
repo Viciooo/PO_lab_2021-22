@@ -19,21 +19,21 @@ public abstract class AbstractWorldMap implements IWorldMap,IPositionChangeObser
         this.animals = new LinkedHashMap<>();
     }
 
-    public int getxMin() {
-        return xMin;
-    }
+    public abstract int getxMin();
 
-    public int getyMin() {
-        return yMin;
-    }
+    public abstract int getyMin();
 
-    public int getxMax() {
-        return xMax;
-    }
+    public abstract int getxMax();
 
-    public int getyMax() {
-        return yMax;
-    }
+    public abstract int getyMax();
+
+    public abstract void setxMin(int xMin);
+
+    public abstract void setyMin(int yMin);
+
+    public abstract void setxMax(int xMax);
+
+    public abstract void setyMax(int yMax);
 
     @Override
     public boolean canMoveTo(Vector2d position) {

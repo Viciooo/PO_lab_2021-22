@@ -54,47 +54,62 @@ public class GrassField extends AbstractWorldMap {
 
     public Vector2d getLowerLeft() {
         for (Grass g : this.fields) {
-            this.xMin = Math.min(xMin, g.getPosition().getX());
-            this.yMin = Math.min(yMin, g.getPosition().getY());
+            setxMin(Math.min(xMin, g.getPosition().getX()));
+            setyMin(Math.min(yMin, g.getPosition().getY()));
         }
 
         for (Vector2d v : this.animals.keySet()) {
-            this.xMin = Math.min(xMin, this.animals.get(v).getPosition().getX());
-            this.yMin = Math.min(yMin, this.animals.get(v).getPosition().getY());
+            setxMin(Math.min(xMin, this.animals.get(v).getPosition().getX()));
+            setyMin(Math.min(yMin, this.animals.get(v).getPosition().getY()));
         }
         return new Vector2d(this.xMin, this.yMin);
     }
 
     public Vector2d getUpperRight() {
         for (Grass g : this.fields) {
-            this.xMax = Math.max(xMax, g.getPosition().getX());
-            this.yMax = Math.max(yMax, g.getPosition().getY());
+            setxMax(Math.max(xMax, g.getPosition().getX()));
+            setyMax(Math.max(yMax, g.getPosition().getY()));
         }
         for (Vector2d v : this.animals.keySet()) {
-            this.xMax = Math.max(xMax, this.animals.get(v).getPosition().getX());
-            this.yMax = Math.max(yMax, this.animals.get(v).getPosition().getY());
+            setxMax(Math.max(xMax, this.animals.get(v).getPosition().getX()));
+            setyMax(Math.max(yMax, this.animals.get(v).getPosition().getY()));
         }
-        return new Vector2d(this.xMax, this.yMax);
+        return new Vector2d(getxMax(), getyMax());
     }
 
-    @Override
     public int getxMin() {
-        return xMin;
+        return this.xMin;
     }
 
-    @Override
     public int getyMin() {
-        return yMin;
+        return this.yMin;
     }
 
-    @Override
     public int getxMax() {
-        return xMax;
+        return this.xMax;
     }
 
-    @Override
     public int getyMax() {
-        return yMax;
+        return this.yMax;
     }
+
+
+
+    public void setxMin(int xMin) {
+        this.xMin = xMin;
+    }
+
+    public void setyMin(int yMin) {
+        this.yMin = yMin;
+    }
+
+    public void setxMax(int xMax) {
+        this.xMax = xMax;
+    }
+
+    public void setyMax(int yMax) {
+        this.yMax = yMax;
+    }
+
 }
 

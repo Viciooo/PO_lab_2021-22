@@ -1,13 +1,14 @@
 package agh.ics.oop;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SimulationEngine implements IEngine {
     private final ArrayList<MoveDirection> moves;
     private final IWorldMap mapInstance;
     private final Vector2d[] animalsPos;
 
-    public SimulationEngine(ArrayList<MoveDirection>  moves, IWorldMap mapInstance, Vector2d[] initialPos) {
+    public SimulationEngine(ArrayList<MoveDirection> moves, IWorldMap mapInstance, Vector2d[] initialPos) {
         this.moves = moves;
         this.mapInstance = mapInstance;
         this.animalsPos = initialPos;
