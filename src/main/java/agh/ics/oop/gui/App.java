@@ -24,7 +24,7 @@ public class App extends Application {
         IEngine engine = new SimulationEngine(directions, myMap, positions);
         System.out.println(myMap);
         engine.run();
-
+        System.out.println(myMap);
 
     primaryStage.setTitle("Simulation Engine");
 
@@ -33,8 +33,8 @@ public class App extends Application {
     gridPane.setPadding(new Insets(5,5,5,5));
     gridPane.setGridLinesVisible(true);
 
-    int x = myMap.getxMax() + 1;
-    int y = myMap.getyMax() + 1;
+    int x = myMap.getxMax()+2;
+    int y = myMap.getyMax()+2;
 
 
         System.out.println(x);
@@ -53,7 +53,6 @@ public class App extends Application {
         rowConstraints.setPercentHeight(100.0 / y);
         gridPane.getRowConstraints().add(rowConstraints);
     }
-
     for(int i = 0; i<y;i++)
     for(int j = 0; j<x;j++)
         {
